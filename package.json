@@ -1,0 +1,16 @@
+{
+  "name": "serdalatacado",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "puppeteer": "^24.31.0",
+    "xlsx": "^0.18.5"
+  }
+}
