@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serdal": "node scripts/app.js"
+    "serdal": "node src/domains/serdal/serdalSkuCrawler.js"
   },
   "author": "",
   "license": "ISC",
