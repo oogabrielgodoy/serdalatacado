@@ -1,4 +1,6 @@
 require("dotenv").config();
+let SerdalLogin = require("./SerdalLogin.js");
+
 let puppeteer = require("puppeteer");
 let xlsx = require("xlsx");
 
@@ -34,19 +36,8 @@ let baseUrl = process.env.SERDAL_BASE_URL;
 
   //Fazer login na Serdal
   console.log("[robo] Fazendo login...");
-  await page.goto(`${baseUrl}/customer/account/login/`, {
-    waitUntil: "networkidle2",
-  });
-
-  await page.waitForSelector("#login_prelogin_email", { visible: true });
-  await page.type("#login_prelogin_email", email);
-  await page.click("#login_prelogin_button");
-
-  await page.waitForSelector("#pass", { visible: true });
-  await page.type("#pass", senha);
-  await page.click("#send2");
-  await page.waitForNavigation({ waitUntil: "networkidle2" });
-  console.log("[robo] Sucesso no login...");
+  const login = await SerdalLogin(baseUrl, `/customer/account/login/`, page, email, senha);
+  console.log(login);
 
   // Buscar SKU na Serdal
   for (const sku of skus) {
